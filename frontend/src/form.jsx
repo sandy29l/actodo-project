@@ -52,7 +52,7 @@ function Form(props) {
     }
 
     function handledelete(activity) {
-        axios.delete("http://localhost:5000/activity", {
+        axios.delete("https://actodo-project.onrender.com/activity", {
             data: {
                 username: props.username,
                 activity: activity
