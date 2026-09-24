@@ -21,7 +21,7 @@ function Signup(props) {
             if(localStorage.getItem('auth')){
                 navigate("/actodo");
             }
-        },[])
+        },[navigate])
 
 
     function handleuser(evt) {

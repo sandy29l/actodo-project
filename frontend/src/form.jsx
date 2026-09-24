@@ -24,7 +24,7 @@ function Form(props) {
             .catch(function () {
                 console.log("error in retrieving data");
             });
-    }, [refresh, props.username]);
+    }, [refresh, props.username,navigate]);
 
     function handlechange(evt) {
         setnewactivity(evt.target.value);

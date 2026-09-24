@@ -2,7 +2,7 @@ import './index.css'
 import Header from './header.js'
 import Form from './form.jsx'
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 // Fonts + the one orchestrated motion (slow aurora drift). Reduced-motion is respected.
 const css = `
@@ -37,18 +37,18 @@ function Actodo() {
     const data = useLocation();
     // const history=useHistory();
     const navigate = useNavigate();
-    const [logout,setlogout]=useState(false);
+    // const [logout,setlogout]=useState(false);
     useEffect(()=>{
         if(!localStorage.getItem('auth')){
             navigate('/');
         }
-    },[])
+    },[navigate])
 
     function handlelogout() {
         // replace: true so the Back button can't return to the dashboard
         localStorage.removeItem('auth');
         navigate('/');
-        setlogout(true);
+        
     }
 
     // Live date instead of the hard-coded one

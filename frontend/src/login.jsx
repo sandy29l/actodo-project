@@ -17,7 +17,7 @@ function Login(props) {
         if(localStorage.getItem('auth')){
             navigate("/actodo");
         }
-    },[])
+    },[navigate])
 
     useEffect(function () {
         axios.get("http://localhost:5000/login")
