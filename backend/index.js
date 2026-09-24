@@ -1,16 +1,19 @@
 const express= require("express");
 const cors=require("cors");
 const mongoose=require("mongoose");
+require("dotenv").config();
 
 const app=express();
 
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb://127.0.0.1:27017/userdb").then(function(){
+const mongo=process.env.mongodb_url;
+
+mongoose.connect(mongo).then(function(){
     console.log("db success");
-}).catch(function(){
-    console.log("db fail");
+}).catch(function(data){
+    console.log("db fail",data);
 })
 
 const user= mongoose.model("user",{username:String , password:Number,activity: [String]},"user")
@@ -24,6 +27,7 @@ const user= mongoose.model("user",{username:String , password:Number,activity: [
 app.get("/login",function(req,res){
     user.find().then(function(retdata){
         res.send(retdata);
+        console.log(retdata.data);
     })
 })
 
@@ -121,6 +125,6 @@ app.delete("/activity", function(req, res) {
     });
 });
 
-app.listen(5000,function(){
+app.listen("https://actodo-project.onrender.com",function(){
     console.log("Server started");
 })

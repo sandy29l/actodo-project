@@ -20,7 +20,7 @@ function Login(props) {
     },[navigate])
 
     useEffect(function () {
-        axios.get("http://localhost:5000/login")
+        axios.get("https://actodo-project.onrender.com/login")
             .then(function (data) {
                 setuser(data.data);
             })

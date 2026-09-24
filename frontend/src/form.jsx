@@ -17,7 +17,7 @@ function Form(props) {
             localStorage.removeItem('auth');
             navigate('/');
         }
-        axios.get(`http://localhost:5000/getact?username=${props.username}`)
+        axios.get(`https://actodo-project.onrender.com/getact?username=${props.username}`)
             .then(function (data) {
                 setactivity(data.data);
             })
@@ -35,7 +35,7 @@ function Form(props) {
             return;
         }
 
-        axios.post("http://localhost:5000/activity", {
+        axios.post("https://actodo-project.onrender.com/activity", {
             username: props.username,
             activity: newactivity
         })

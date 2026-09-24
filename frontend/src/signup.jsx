@@ -54,7 +54,7 @@ function Signup(props) {
             return;
         }
 
-        axios.post("http://localhost:5000/signup", {
+        axios.post("https://actodo-project.onrender.com/signup", {
             username: newusername,
             password: Number(newuserpass)
         })
